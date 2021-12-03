@@ -9,7 +9,7 @@ import { Form, Alert, Button } from 'react-bootstrap';
 import validationSchema from './validationSchema';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-const AuthForm = ({ isLogin, closeCb }) => {
+const AuthForm = ({ isLogin }) => {
     const [err, setErr] = useState('');
     const [success, setSuccess] = useState(false);
     const { control, handleSubmit, formState: { errors } } = useForm({
@@ -24,21 +24,9 @@ const AuthForm = ({ isLogin, closeCb }) => {
         try {
             setErr('');
             if (isLogin) {
-                const res = await signWithPassword(data.email, data.password);
-                if (res) {
-                    setSuccess(true);
-                    setTimeout(() => {
-                        closeCb();
-                    }, 2000);
-                }
+                await signWithPassword(data.email, data.password);
             } else {
-                const res = await registerWithPassword(data.email, data.password);
-                if (res) {
-                    setSuccess(true);
-                    setTimeout(() => {
-                        closeCb();
-                    }, 2000);
-                }
+                await registerWithPassword(data.email, data.password);
             }
         } catch (error) {
             setErr(error.message);
@@ -51,9 +39,8 @@ const AuthForm = ({ isLogin, closeCb }) => {
         }
     }
 
-
     return (
-        <Form name="auth-form" onSubmit={handleSubmit(onSubmit)}>
+        <Form style={{ width: '85%' }} name="auth-form" onSubmit={handleSubmit(onSubmit)}>
             {err && <Alert variant="danger">{err}</Alert>}
             {success && <Alert variant="success">{isLogin ? 'Login is successful' : 'Registration is successful'}</Alert>}
             <Form.Group className="mb-3" controlId="emailInput">
@@ -70,7 +57,7 @@ const AuthForm = ({ isLogin, closeCb }) => {
                                                   field.onChange(e);
                                               }} />
                             )} />
-                {errors.email && <Form.Text style={{ color: '#f00' }} className="text-muted">{errors.email}</Form.Text>}
+                {errors.email && <Form.Text style={{ color: '#f00' }}>{errors.email.message}</Form.Text>}
             </Form.Group>
             <Form.Group className="mb-3" controlId="passwordInput">
                 <Form.Label>Password</Form.Label>
@@ -88,12 +75,14 @@ const AuthForm = ({ isLogin, closeCb }) => {
                                               }}
                                 />
                             )} />
-                {errors.password && <Form.Text style={{ color: '#f00' }} className="text-muted">{errors.password}</Form.Text>}
+                {errors.password && <Form.Text style={{ color: '#f00' }}>{errors.password.message}</Form.Text>}
             </Form.Group>
 
-            <Button type="submit" variant="primary" block>
-                {isLogin ? 'Login' : 'Register'}
-            </Button>
+            <Form.Group>
+                <Button type="submit" variant="primary" style={{ width: '100%' }}>
+                    {isLogin ? 'Login' : 'Register'}
+                </Button>
+            </Form.Group>
         </Form>
     );
 }

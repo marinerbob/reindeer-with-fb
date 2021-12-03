@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 
-import { Modal, Button, Form, Nav } from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
 
 import AuthForm from './AuthForm';
+import AuthModal from "./AuthModal";
 
 const Login = () => {
     const [show, setShow] = useState(false);
@@ -21,14 +22,9 @@ const Login = () => {
             login
         </Nav.Link>
   
-        <Modal show={show} onHide={handleClose} backdrop="static">
-          <Modal.Header>
-            <Modal.Title>Reindeer login</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
+        <AuthModal title="Reindeer login" show={show} handleClose={handleClose}>
             <AuthForm isLogin closeCb={handleClose} />
-          </Modal.Body>
-        </Modal>
+        </AuthModal>
       </>
     );
   };

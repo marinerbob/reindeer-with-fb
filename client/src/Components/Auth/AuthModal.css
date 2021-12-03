@@ -1,0 +1,15 @@
+.modalBody {
+    background-color: #101112;
+    color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+
+}
+
+.title {
+    font-size: 25px;
+    padding-bottom: 15px;
+}
