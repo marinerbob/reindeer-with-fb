@@ -4,7 +4,7 @@ import { Modal, Button, Form, Nav } from 'react-bootstrap';
 
 import AuthForm from './AuthForm';
 
-const Register = () => {
+const Login = () => {
     const [show, setShow] = useState(false);
   
     const handleClose = () => setShow(false);
@@ -21,16 +21,16 @@ const Register = () => {
             login
         </Nav.Link>
   
-        <Modal show={show} onHide={handleClose}>
+        <Modal show={show} onHide={handleClose} backdrop="static">
           <Modal.Header>
             <Modal.Title>Reindeer login</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <AuthForm isLogin />
+            <AuthForm isLogin closeCb={handleClose} />
           </Modal.Body>
         </Modal>
       </>
     );
   };
 
-  export default Register;
+  export default Login;

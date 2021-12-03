@@ -21,12 +21,12 @@ const Register = () => {
             register
         </Nav.Link>
   
-        <Modal show={show} onHide={handleClose}>
+        <Modal show={show} onHide={handleClose} backdrop="static">
           <Modal.Header>
             <Modal.Title>Reindeer registration</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <AuthForm />
+            <AuthForm closeCb={handleClose} />
           </Modal.Body>
         </Modal>
       </>
