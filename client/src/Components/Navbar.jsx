@@ -3,6 +3,10 @@ import Icon from '../Images/ReinDeer_logo.png'
 import CartIcon from '../Images/shopping_cart_item.png'
 import { useHistory } from 'react-router'
 import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap'
+
+import Register from './Auth/Register';
+import Login from './Auth/Login';
+
 function Header() {
   const history = useHistory()
   return (
@@ -31,20 +35,8 @@ function Header() {
               className="ml-auto paddingLeft5"
               style={{ marginRight: '7rem' }}
             >
-              <Nav.Link
-                style={{ width: '60px', backgroundColor: 'dark' }}
-                onClick={() => history.push('/login')}
-              >
-                login
-              </Nav.Link>
-              <Nav.Link
-                style={{ width: '60px', backgroundColor: 'dark' }}
-                eventKey={2}
-                onClick={() => history.push('/register')}
-                className="float-right"
-              >
-                register
-              </Nav.Link>
+              <Login />
+              <Register />
 
               <NavDropdown
                 title="en"

@@ -1,5 +1,7 @@
 
 import { initializeApp } from "firebase/app";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut,  } from 'firebase/auth';
+import { getDatabase } from 'firebase/database';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDKoll-uSQjQNaHltvLUfQMTt4u5rw42Nc",
@@ -11,12 +13,12 @@ const firebaseConfig = {
 };
  
 const app = initializeApp(firebaseConfig);
-const auth = app.auth();
-const db = app.firestore();
+const auth = getAuth(app);
+const db = getDatabase(app);
 
 export const signWithPassword = async (email, password) => {
     try {
-        await auth.signInWithEmailAndPassword(email, password);
+        await signInWithEmailAndPassword(auth, email, password);
     } catch (error) {
         throw error;
     }
@@ -24,7 +26,7 @@ export const signWithPassword = async (email, password) => {
 
 export const registerWithPassword = async (email, password) => {
     try {
-        const res = await auth.createUserWithEmailAndPassword(email, password);
+        const res = await createUserWithEmailAndPassword(auth, email, password);
         const user = res.user;
         await db.collection('users').add({
             uid: user.uid,
@@ -44,6 +46,6 @@ export const sendPasswordResetEmail = async email => {
     }
 };
 
-export const logout = () => {
-    auth.signOut();
+export const logout = async () => {
+    await signOut(auth);
 }; 
