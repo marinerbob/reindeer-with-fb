@@ -1,0 +1,134 @@
+.modalBody {
+  background-color: #101112;
+  color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 25px;
+  padding-bottom: 15px;
+}
+
+.photo {
+  border-radius: 10px;
+  height: 25rem;
+  width: 40rem;
+  object-fit: cover;
+}
+
+.itemRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 40rem;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.itemSelector {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 3.5rem;
+  width: 30rem;
+  background-color: #3d3d3d;
+  color: antiquewhite;
+  border-radius: 10px;
+}
+
+.itemCount {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 3.5rem;
+  width: 9rem;
+  background-color: #3d3d3d;
+  color: antiquewhite;
+  border-radius: 10px;
+}
+
+.whiteButton {
+  border-radius: 10px;
+  background-color: antiquewhite;
+  color: #3d3d3d;
+  height: 3.5rem;
+  width: 6rem;
+  font-size: 20px;
+  border: 0px;
+}
+
+.plusButton {
+  border-radius: 10px;
+  background-color: antiquewhite;
+  color: #3d3d3d;
+  height: 3.5rem;
+  width: 3rem;
+  font-size: 20px;
+  border: 0px;
+}
+
+.minusButton {
+  border-radius: 10px;
+  background-color: #3d3d3d;
+  color: antiquewhite;
+  height: 3.5rem;
+  width: 3rem;
+  font-size: 20px;
+  border: 0px;
+}
+
+.addMore {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  width: 40rem;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 20px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  width: 40rem;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.nextButton {
+  border-radius: 10px;
+  background-color: #3d3d3d;
+  color: antiquewhite;
+  height: 3rem;
+  width: 6rem;
+  font-size: 20px;
+  border: 0px;
+}
+
+.cancelButton {
+  background-color: #101112;
+  color: antiquewhite;
+  height: 3rem;
+  width: 6rem;
+  font-size: 20px;
+  border: 0px;
+}
+
+.dropdownItem {
+  justify-content: space-between;
+  align-items: center;
+  height: 3.5rem;
+  width: 30rem;
+  background-color: #3d3d3d;
+  color: antiquewhite;
+  border-radius: 10px;
+  font-size: 20px;
+}
